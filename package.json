@@ -1,0 +1,18 @@
+{
+  "name": "MMM-GoogleMapsTraffic",
+  "version": "1.0.0",
+  "description": "Todo: Insert description here!",
+  "main": "MMM-GoogleMapsTraffic.js",
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "grunt": "latest",
+    "grunt-eslint": "latest",
+    "grunt-jsonlint": "latest",
+    "grunt-markdownlint": "^1.0.13",
+    "grunt-stylelint": "latest",
+    "grunt-yamllint": "latest",
+    "stylelint-config-standard": "latest",
+    "time-grunt": "latest"
+  }
+}
