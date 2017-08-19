@@ -9,8 +9,8 @@
 
 Module.register("MMM-GoogleMapsTraffic", {
 	defaults: {
-		updateInterval: 60000,
-		retryDelay: 5000
+		updateInterval: 300000,
+		retryDelay: 60000
 	},
 
 	requiresVersion: "2.1.0", // Required version of MagicMirror
