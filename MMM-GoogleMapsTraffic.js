@@ -9,15 +9,15 @@
 
 Module.register("MMM-GoogleMapsTraffic", {
 	defaults: {
-		updateInterval: 300000,
-		retryDelay: 60000
 	},
 
-	getScripts: function() {
-		var key = this.config.key;
-		var url = "https://maps.googleapis.com/maps/api/js?key="+key; 
-		return [url]
-	},
+	start: function () {
+        Log.info("Starting module: " + this.name);
+        var script = document.createElement("script");
+        script.type = "text/javascript";
+        script.src = "https://maps.googleapis.com/maps/api/js?key=" + this.config.key;
+        document.querySelector("body").appendChild(script);
+    },
 
 	getStyles: function() {
 		return ["MMM-GoogleMapsTraffic.css"];
@@ -31,7 +31,10 @@ Module.register("MMM-GoogleMapsTraffic", {
 
         var map = new google.maps.Map(document.getElementById("map"), {
         	zoom: 13,
-        	center: {lat: this.config.lat, lng: this.config.lng}
+        	center: {
+        		lat: this.config.lat,
+        		lng: this.config.lng
+        	}
         });
 
         var trafficLayer = new google.maps.TrafficLayer();
