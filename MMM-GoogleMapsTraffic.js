@@ -13,12 +13,17 @@ Module.register("MMM-GoogleMapsTraffic", {
 		retryDelay: 60000
 	},
 
-	requiresVersion: "2.1.0", // Required version of MagicMirror
+	getScripts: function() {
+		var key = config.key;
+		var url = "https://maps.googleapis.com/maps/api/js?key="+key; 
+		return [url]
+	},
 
-	// Override dom generator.
 	getDom: function() {
 		var wrapper = document.createElement("div");
-		wrapper.setAttribute("id", "map");
+
+		var mapDiv = document.createElement("div");
+		mapDiv.setAttribute("id", "map");
 
         var map = new google.maps.Map(document.getElementById("map"), {
         	zoom: 13,
@@ -28,13 +33,9 @@ Module.register("MMM-GoogleMapsTraffic", {
         var trafficLayer = new google.maps.TrafficLayer();
         trafficLayer.setMap(map);
 
-		return wrapper;
-	}
+        wrapper.appendChild(mapDiv);
 
-	getScripts: function() {
-		var key = config.key;
-		var url = "https://maps.googleapis.com/maps/api/js?key="+key; 
-		return [url]
+		return wrapper;
 	}
 
 });
