@@ -14,9 +14,13 @@ Module.register("MMM-GoogleMapsTraffic", {
 	},
 
 	getScripts: function() {
-		var key = config.key;
+		var key = this.config.key;
 		var url = "https://maps.googleapis.com/maps/api/js?key="+key; 
 		return [url]
+	},
+
+	getStyles: function() {
+		return ["MMM-GoogleMapsTraffic.css"];
 	},
 
 	getDom: function() {
@@ -27,7 +31,7 @@ Module.register("MMM-GoogleMapsTraffic", {
 
         var map = new google.maps.Map(document.getElementById("map"), {
         	zoom: 13,
-        	center: {lat: config.lat, lng: config.lng}
+        	center: {lat: this.config.lat, lng: this.config.lng}
         });
 
         var trafficLayer = new google.maps.TrafficLayer();
