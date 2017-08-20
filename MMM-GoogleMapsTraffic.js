@@ -8,39 +8,34 @@
  */
 
 Module.register("MMM-GoogleMapsTraffic", {
-	defaults: {
-	},
 
-	start: function () {
-        Log.info("Starting module: " + this.name);
+	getDom: function() {
+        var lat = this.config.lat;
+        var lng = this.config.lng;
+
+		var wrapper = document.createElement("div");
+        wrapper.setAttribute("id", "map");
+
+        wrapper.style.height = this.config.height;
+        wrapper.style.width = this.config.width;
+
         var script = document.createElement("script");
         script.type = "text/javascript";
         script.src = "https://maps.googleapis.com/maps/api/js?key=" + this.config.key;
-        document.querySelector("body").appendChild(script);
-    },
+        document.body.appendChild(script);
 
-	getStyles: function() {
-		return ["MMM-GoogleMapsTraffic.css"];
-	},
+        script.onload = function () {
+            var map = new google.maps.Map(document.getElementById("map"), {
+            	zoom: 13,
+            	center: {
+            		lat: lat,
+            		lng: lng
+            	}
+            });
 
-	getDom: function() {
-		var wrapper = document.createElement("div");
-
-		var mapDiv = document.createElement("div");
-		mapDiv.setAttribute("id", "map");
-
-        var map = new google.maps.Map(document.getElementById("map"), {
-        	zoom: 13,
-        	center: {
-        		lat: this.config.lat,
-        		lng: this.config.lng
-        	}
-        });
-
-        var trafficLayer = new google.maps.TrafficLayer();
-        trafficLayer.setMap(map);
-
-        wrapper.appendChild(mapDiv);
+            var trafficLayer = new google.maps.TrafficLayer();
+            trafficLayer.setMap(map);
+        };
 
 		return wrapper;
 	}
