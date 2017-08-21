@@ -6,7 +6,11 @@ A module for the [MagicMirror²](https://github.com/MichMich/MagicMirror/) that 
 
 ## Using the module
 
-To use this module, add the following configuration block to the modules array in the `config/config.js` file:
+To use this module, clone this repo to your `MagicMirror/modules/` directory.
+
+`git clone https://github.com/vicmora/MMM-GoogleMapsTraffic.git`
+
+And add the following configuration block to the modules array in the `config/config.js` file:
 ```js
 var config = {
     modules: [
