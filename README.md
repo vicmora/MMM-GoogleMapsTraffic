@@ -1,8 +1,6 @@
 # MMM-GoogleMapsTraffic
 
-<center>
 ![Alt text](/img/mmm-googlemapstraffic.png "A preview of the MMM-GoogleMapsTraffic module.")
-</center>
 
 A module for the [MagicMirror²](https://github.com/MichMich/MagicMirror/) that displays a map, centered at provided coordinates, with Google Maps Traffic information.
 
@@ -15,9 +13,9 @@ var config = {
         {
             module: 'MMM-GoogleMapsTraffic',
             config: {
-				key: 'YOUR_KEY',
-				lat: 37.8262306,
-				lng: -122.2920096,
+                key: 'YOUR_KEY',
+                lat: 37.8262306,
+                lng: -122.2920096,
                 height: '300px',
                 width: '300px'
             }
