@@ -1,7 +1,7 @@
 {
   "name": "MMM-GoogleMapsTraffic",
   "version": "1.0.0",
-  "description": "Todo: Insert description here!",
+  "description": "A module that displays a map, centered at provided coordinates, with Google Maps Traffic information.",
   "main": "MMM-GoogleMapsTraffic.js",
   "author": "",
   "license": "MIT",

@@ -1,8 +1,10 @@
 # MMM-GoogleMapsTraffic
 
-This is a module for the [MagicMirror²](https://github.com/MichMich/MagicMirror/).
+<center>
+![Alt text](/img/mmm-googlemapstraffic.png "A preview of the MMM-GoogleMapsTraffic module.")
+</center>
 
-Todo: Insert description here!
+A module for the [MagicMirror²](https://github.com/MichMich/MagicMirror/) that displays a map, centered at provided coordinates, with Google Maps Traffic information.
 
 ## Using the module
 
@@ -13,7 +15,11 @@ var config = {
         {
             module: 'MMM-GoogleMapsTraffic',
             config: {
-                // See below for configurable options
+				key: 'YOUR_KEY',
+				lat: 37.8262306,
+				lng: -122.2920096,
+                height: '300px',
+                width: '300px'
             }
         }
     ]
@@ -22,7 +28,20 @@ var config = {
 
 ## Configuration options
 
-| Option           | Description
-|----------------- |-----------
-| `option1`        | *Required* DESCRIPTION HERE
-| `option2`        | *Optional* DESCRIPTION HERE TOO <br><br>**Type:** `int`(milliseconds) <br>Default 60000 milliseconds (1 minute)
+| Option    | Description
+|---------- |-----------
+| `key`     | *Required* Google api key. See below for help.
+| `lat`     | *Required* Latitude used to center the map. See below for help. <br><br>**Type:** `float`
+| `lng`     | *Required* Longitude used to center the map. See below for help. <br><br>**Type:** `float`
+| `height`  | *Required* Height of the map. <br><br>**Type:** `string` (pixels)
+| `width`   | *Required* Width of the map. <br><br>**Type:** `string` (pixels)
+
+## Google API Key
+
+Obtain an api at [Google Developer's page](https://developers.google.com/maps/documentation/javascript/).
+
+## Coordinates
+
+The easiest way to obtain latitude and longitude coordinates is via [Google Maps](https://maps.google.com). Type an address, location, or center the map where you'd like it centered. The coordinates will appear in the address bar as seen below.
+
+![Alt text](/img/coordinates.png "Google Maps coordinates.")
