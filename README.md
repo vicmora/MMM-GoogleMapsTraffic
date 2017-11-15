@@ -30,13 +30,15 @@ var config = {
 
 ## Configuration options
 
-| Option    | Description
-|---------- |-----------
-| `key`     | *Required* Google api key. See below for help.
-| `lat`     | *Required* Latitude used to center the map. See below for help. <br><br>**Type:** `float`
-| `lng`     | *Required* Longitude used to center the map. See below for help. <br><br>**Type:** `float`
-| `height`  | *Required* Height of the map. <br><br>**Type:** `string` (pixels)
-| `width`   | *Required* Width of the map. <br><br>**Type:** `string` (pixels)
+| Option               | Description
+|--------------------- |-----------
+| `key`                | *Required* Google api key. See below for help.
+| `lat`                | *Required* Latitude used to center the map. See below for help. <br><br>**Type:** `float`
+| `lng`                | *Required* Longitude used to center the map. See below for help. <br><br>**Type:** `float`
+| `height`             | Height of the map. <br><br>**Type:** `string` (pixels) <br> **Default value:** `300px`
+| `width`              | Width of the map. <br><br>**Type:** `string` (pixels) <br> **Default value:** `300px`
+| `zoom`               | Zoom value to display from lat/lng. <br><br>**Type:** `integer` <br> **Default value:** `10`
+| `disableDefaultUI`   | Disable default UI buttons (Zoom and Street View). <br><br>**Type:** `boolean` <br> **Default value:** `true`
 
 ## Google API Key
 
