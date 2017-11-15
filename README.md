@@ -16,6 +16,7 @@ var config = {
     modules: [
         {
             module: 'MMM-GoogleMapsTraffic',
+            position: 'top_left',
             config: {
                 key: 'YOUR_KEY',
                 lat: 37.8262306,
