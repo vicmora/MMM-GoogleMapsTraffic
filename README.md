@@ -39,6 +39,7 @@ var config = {
 | `height`             | Height of the map. <br><br>**Type:** `string` (pixels) <br> **Default value:** `300px`
 | `width`              | Width of the map. <br><br>**Type:** `string` (pixels) <br> **Default value:** `300px`
 | `zoom`               | Zoom value to display from lat/lng. <br><br>**Type:** `integer` <br> **Default value:** `10`
+| `mapTypeId`          | The map type to display (roadmap, satellite, hybrid, terrain).  <br><br>**Type:** `string` <br> **Default value:** `roadmap`
 | `disableDefaultUI`   | Disable default UI buttons (Zoom and Street View). <br><br>**Type:** `boolean` <br> **Default value:** `true`
 
 ## Google API Key
