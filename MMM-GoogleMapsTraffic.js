@@ -15,6 +15,7 @@ Module.register("MMM-GoogleMapsTraffic", {
 		height: '300px',
 		width: '300px',
 		zoom: 10,
+                mapTypeId: 'roadmap',
 		disableDefaultUI: true
 	},
 
@@ -37,6 +38,7 @@ Module.register("MMM-GoogleMapsTraffic", {
         script.onload = function () {
             var map = new google.maps.Map(document.getElementById("map"), {
             	zoom: self.config.zoom,
+                mapTypeId: self.config.mapTypeId,
             	center: {
             		lat: self.config.lat,
             		lng: self.config.lng
