@@ -73,7 +73,7 @@ Module.register("MMM-GoogleMapsTraffic", {
         	};
 
 		return wrapper;
-	}
+	},
 	
 	// socketNotificationReceived from helper
         socketNotificationReceived: function (notification, payload) {
