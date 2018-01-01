@@ -1,0 +1,6 @@
+# Ignore changes to the custom style.
+mapStyle/*
+!mapStyle/black
+!mapStyle/dark
+!mapStyle/night
+!mapStyle/standard
