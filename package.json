@@ -14,5 +14,9 @@
     "grunt-yamllint": "latest",
     "stylelint-config-standard": "latest",
     "time-grunt": "latest"
+  },
+  "dependencies": {
+    "fs": "latest",
+    "path": "latest"
   }
 }
