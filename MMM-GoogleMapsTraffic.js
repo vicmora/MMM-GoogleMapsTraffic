@@ -19,24 +19,25 @@ Module.register("MMM-GoogleMapsTraffic", {
                 mapTypeId: 'roadmap',
 		styledMapType: 'standard',
 		disableDefaultUI: true,
-		updateInterval: 900000
+		updateInterval: 900000,
+        backgroundColor: 'rgba(0, 0, 0, 0)'
 	},
 	
 	start: function() {
-                var self = this;
-                Log.info("Starting module: " + this.name);
+        var self = this;
+        Log.info("Starting module: " + this.name);
 
-                if (this.config.key === "") {
-                        Log.error("MMM-GoogleMapsTraffic: key not set!");
-                        return;
-                }
+        if (this.config.key === "") {
+                Log.error("MMM-GoogleMapsTraffic: key not set!");
+                return;
+        }
 
-                this.sendSocketNotification("MMM-GOOGLE_MAPS_TRAFFIC-GET", {style: this.config.styledMapType});
+        this.sendSocketNotification("MMM-GOOGLE_MAPS_TRAFFIC-GET", {style: this.config.styledMapType});
 
-                setInterval(function() {
-                        self.updateDom();
-                }, this.config.updateInterval);
-        },
+        setInterval(function() {
+                self.updateDom();
+        }, this.config.updateInterval);
+    },
 
 	getDom: function() {
         	var lat = this.config.lat;
@@ -48,29 +49,52 @@ Module.register("MMM-GoogleMapsTraffic", {
         	wrapper.style.height = this.config.height;
         	wrapper.style.width = this.config.width;
 
-        	var script = document.createElement("script");
+    	var script = document.createElement("script");
         	script.type = "text/javascript";
         	script.src = "https://maps.googleapis.com/maps/api/js?key=" + this.config.key;
-		script.setAttribute('defer','');
-		script.setAttribute('async','');
+    		script.setAttribute('defer','');
+    		script.setAttribute('async','');
         	document.body.appendChild(script);
 
 		var self = this;
-        	script.onload = function () {
-            	var map = new google.maps.Map(document.getElementById("map"), {
-            		zoom: self.config.zoom,
-                	mapTypeId: self.config.mapTypeId,
-            		center: {
-            			lat: self.config.lat,
-            			lng: self.config.lng
-            		},
-			styles: self.styledMapType,
-			disableDefaultUI: self.config.disableDefaultUI
-            	});
 
-            	var trafficLayer = new google.maps.TrafficLayer();
-            	trafficLayer.setMap(map);
-        	};
+    	script.onload = function () {
+            var map = new google.maps.Map(document.getElementById("map"), {
+                zoom: self.config.zoom,
+                mapTypeId: self.config.mapTypeId,
+                center: {
+                    lat: self.config.lat,
+                    lng: self.config.lng
+                },
+                styles: self.styledMapType,
+                disableDefaultUI: self.config.disableDefaultUI,
+                backgroundColor: 'hsla(0, 0%, 0%, 0)'
+            });
+
+            var trafficLayer = new google.maps.TrafficLayer();
+            trafficLayer.setMap(map);
+
+            for(var i = 0; i < self.config.markers.length; i++) {
+                var marker = self.config.markers[i];
+                var markerOptions = {
+                    map: map,
+                    position: {
+                        lat: marker.lat,
+                        lng: marker.lng,
+                    }
+                };
+                markerOptions.icon = {
+                    path: 'M11 2c-3.9 0-7 3.1-7 7 0 5.3 7 13 7 13 0 0 7-7.7 7-13 0-3.9-3.1-7-7-7Zm0 9.5c-1.4 0-2.5-1.1-2.5-2.5 0-1.4 1.1-2.5 2.5-2.5 1.4 0 2.5 1.1 2.5 2.5 0 1.4-1.1 2.5-2.5 2.5Z',
+                    scale: 1,
+                    anchor: new google.maps.Point(11, 22),
+                    fillOpacity: 1,
+                    fillColor: marker.fillColor,
+                    strokeOpacity: 0
+                };                
+                var markerLayer = new google.maps.Marker(markerOptions);
+            }
+
+    	};
 
 		return wrapper;
 	},
