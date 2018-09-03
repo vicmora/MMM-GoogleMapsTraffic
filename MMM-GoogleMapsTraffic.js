@@ -68,7 +68,7 @@ Module.register("MMM-GoogleMapsTraffic", {
                 },
                 styles: self.styledMapType,
                 disableDefaultUI: self.config.disableDefaultUI,
-                backgroundColor: 'hsla(0, 0%, 0%, 0)'
+                backgroundColor: self.config.backgroundColor
             });
 
             var trafficLayer = new google.maps.TrafficLayer();
