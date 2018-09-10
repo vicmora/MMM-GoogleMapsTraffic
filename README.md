@@ -1,6 +1,6 @@
 # MMM-GoogleMapsTraffic
 
-![Alt text](/img/mmm-googlemapstraffic.png "A preview of the MMM-GoogleMapsTraffic module.")
+![Alt text](/img/mmm-googlemapstraffic-transparent.png "A preview of the MMM-GoogleMapsTraffic module.")
 
 A module for the [MagicMirror²](https://github.com/MichMich/MagicMirror/) that displays a map, centered at provided coordinates, with Google Maps Traffic information.
 
@@ -24,7 +24,17 @@ var config = {
                 lng: -122.2920096,
                 height: '300px',
                 width: '300px'
-            }
+                styledMapType: "transparent",
+                disableDefaultUI: true,
+                backgroundColor: 'hsla(0, 0%, 0%, 0)',
+                markers: [
+                    {
+                        lat: 37.8262316,
+                        lng: -122.2920196,
+                        fillColor: '#9966ff'
+                    },
+                ],
+            },
         }
     ]
 }
@@ -44,6 +54,9 @@ var config = {
 | `styledMapType`      | Style of the map. See below for help.<br><br>**Type:** `string`<br> **Possible value:** `standard`, `dark`, `night`, `black` or *custom*<br> **Default value:** `standard`
 | `disableDefaultUI`   | Disable default UI buttons (Zoom and Street View). <br><br>**Type:** `boolean` <br> **Default value:** `true`
 | `updateInterval`     | How often the module should load the map.<br><br>**Type:** `int` in millisecond<br> **Default value:** `900000 (15 mins)`
+| `markers`            | Additional markers in the map as an array. See example.
+| `backgroundColor`    | Backgound behind the map.Can be set to transparent (`'hsla(0, 0%, 0%, 0)'`) or left at black (default).  <br><br>**Type:** `string` <br> **Default value:** `'rgba(0, 0, 0, 0)'`
+
 
 ## Google API Key
 
