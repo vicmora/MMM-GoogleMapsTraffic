@@ -24,9 +24,9 @@ Module.register("MMM-GoogleMapsTraffic", {
 	},
   scriptloaded: false,
   script: null,
-	
+	self: null,
 	start: function() {
-        var self = this;
+        self = this;
         Log.info("Starting module: " + this.name);
 
         if (this.config.key === "") {
