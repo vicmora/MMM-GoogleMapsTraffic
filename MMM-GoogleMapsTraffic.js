@@ -107,7 +107,7 @@ Module.register("MMM-GoogleMapsTraffic", {
         socketNotificationReceived: function (notification, payload) {
                 if(notification === "MMM-GOOGLE_MAPS_TRAFFIC-RESPONSE") {
                         this.styledMapType = payload.styledMapType;
-                        console.log = this.styledMapType;
+                        //console.log = this.styledMapType;
                         this.updateDom();
                 }
         },
