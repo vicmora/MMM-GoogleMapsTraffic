@@ -23,7 +23,7 @@ var config = {
                 lat: 37.8262306,
                 lng: -122.2920096,
                 height: '300px',
-                width: '300px'
+                width: '300px',
                 styledMapType: "transparent",
                 disableDefaultUI: true,
                 backgroundColor: 'hsla(0, 0%, 0%, 0)',
